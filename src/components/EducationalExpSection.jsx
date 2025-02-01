@@ -24,10 +24,7 @@ export default function EducationalExpSection({ resume, updateResume }) {
 
     const { schoolName, degree, startDate, endDate } = education
     return (
-        <div id="educationalExp">
-            <h3>Education</h3>
-            <button onClick={() => dialogRef.current?.showModal()}>Add Education</button>
-
+        <div id="education">
             <dialog ref={dialogRef}>
                 <h2>Education</h2>
                 <form>
@@ -39,27 +36,35 @@ export default function EducationalExpSection({ resume, updateResume }) {
                         <label htmlFor="degree">Degree: </label>
                         <input type="text" name="degree" value={degree} onChange={handleInputChange} />
                     </div>
-                    <div>
-                        <label htmlFor="startDate">Start Date: </label>
-                        <input type="date" name="startDate" value={startDate} onChange={handleInputChange} />
+                    <div className="dates">
+                        <div>
+                            <label htmlFor="startDate">Start Date: </label>
+                            <input type="date" name="startDate" value={startDate} onChange={handleInputChange} />
+                        </div>
 
-                        <label htmlFor="endDate">End Date: </label>
-                        <input type="date" name="endDate" value={endDate} onChange={handleInputChange} />
+                        <div>
+                            <label htmlFor="endDate">End Date: </label>
+                            <input type="date" name="endDate" value={endDate} onChange={handleInputChange} />
+                        </div>
                     </div>
 
-                    <button type="button" onClick={() => dialogRef.current?.close()}>Cancel</button>
-                    <button onClick={addNewEducation}>Save</button>
+                    <div className="buttons">
+                        <button type="button" onClick={() => dialogRef.current?.close()}>Cancel</button>
+                        <button onClick={addNewEducation}>Save</button>
+                    </div>
                 </form>
             </dialog>
 
-            <ul>
+            <div className="list">
                 {resume.education.map((edu) => (
-                    <li key={edu.schoolName}>
-                        {edu.schoolName}
+                    <div key={edu.schoolName}>
+                        <span>{edu.schoolName}</span>
                         <button onClick={removeEducation}>Remove</button>
-                    </li>
+                    </div>
                 ))}
-            </ul>
+            </div>
+
+            <button onClick={() => dialogRef.current?.showModal()}>Add Education</button>
         </div>
     )
 }

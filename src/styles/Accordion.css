@@ -1,0 +1,64 @@
+:root {
+    --accordion-border: #555;
+    --accordion-bg: var(--secondary-color);
+    --header-bg: var(--secondary-color);
+    --content-bg: var(--secondary-color);
+}
+
+.accordion-section {
+    border: 1px solid var(--accordion-border);
+    border-radius: 8px;
+    background-color: var(--accordion-bg);
+    overflow: hidden;
+}
+
+.accordion-header {
+    background-color: var(--header-bg);
+    padding: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header h3 {
+    font-size: 1rem;
+    color: #fff;
+}
+
+.accordion-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    transition: transform 0.35s ease;
+}
+
+.accordion-header.expanded .accordion-icon {
+    transform: rotate(45deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.20s ease, opacity 0.35s ease, transform 0.35s ease, padding 0.20s ease;
+    background-color: var(--content-bg);
+}
+
+
+.accordion-content-inner {
+    padding: 16px;
+    color: #fff;
+}
+
+.accordion-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.accordion-content.expanded {
+    max-height: 500px;
+    padding: 0 16px 15px 15px;
+    opacity: 1;
+    transform: translateY(0);
+}

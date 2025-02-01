@@ -1,1 +1,11 @@
+#builder,
+#resume {
+    margin-top: 32px;
+}
 
+#builder {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+}

@@ -1,10 +1,49 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --primary-color: oklch(0.129 0.042 264.695);
+    --secondary-color: oklch(0.208 0.042 265.755);
+    --tertiary-color: oklch(0.282 0.091 267.935);
+}
+
+*:not(dialog) {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: white;
 }
 
 #root {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+}
+
+button {
+    background-color: var(--primary-color);
+    font-size: 1rem;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.30s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+input,
+textarea {
+    background-color: var(--tertiary-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
 }

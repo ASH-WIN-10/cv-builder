@@ -7,7 +7,6 @@ export default function GeneralInfoSection({ resume, updateResume }) {
     const { name, email, phoneNum } = resume
     return (
         <div id="general">
-            <h3>General</h3>
             <form>
                 <div>
                     <label htmlFor="name">Name: </label>

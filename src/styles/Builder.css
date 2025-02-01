@@ -1,0 +1,69 @@
+#builder>div {
+    width: 80%
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 16px;
+    border-top: 3px solid var(--primary-color);
+}
+
+.list div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 8px 0;
+    width: 100%;
+    border-bottom: 3px solid var(--primary-color);
+
+    font-size: 1.2rem;
+}
+
+dialog {
+    width: 30%;
+    background-color: var(--secondary-color);
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    padding: 20px;
+    color: white;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+}
+
+dialog form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+dialog form div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+dialog form .buttons {
+    justify-content: flex-end;
+}
+
+dialog form .description {
+    align-items: center;
+
+    >textarea {
+        font-size: 0.9rem;
+    }
+}

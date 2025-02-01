@@ -25,9 +25,6 @@ export default function PracticalExpSection({ resume, updateResume }) {
     const { companyName, jobTitle, startDate, endDate, jobDesc } = experience
     return (
         <div id="practicalExperience">
-            <h3>Experience</h3>
-            <button onClick={() => dialogRef.current?.showModal()}>Add Experience</button>
-
             <dialog ref={dialogRef}>
                 <h2>Experience</h2>
                 <form>
@@ -40,7 +37,7 @@ export default function PracticalExpSection({ resume, updateResume }) {
                         <label htmlFor="jobTitle">Job Title: </label>
                         <input type="text" name="jobTitle" value={jobTitle} onChange={handleInputChange} />                    </div>
 
-                    <div>
+                    <div className="dates">
                         <label htmlFor="startDate">Start Date: </label>
                         <input type="date" name="startDate" value={startDate} onChange={handleInputChange} />
 
@@ -48,24 +45,28 @@ export default function PracticalExpSection({ resume, updateResume }) {
                         <input type="date" name="endDate" value={endDate} onChange={handleInputChange} />
                     </div>
 
-                    <div>
+                    <div className="description">
                         <label htmlFor="jobDescr">Main Responsibilities: </label>
                         <textarea name="jobDescr" value={jobDesc} onChange={handleInputChange} />
                     </div>
 
-                    <button type="button" onClick={() => dialogRef.current?.close()}>Cancel</button>
-                    <button onClick={addNewExperience}>Save</button>
+                    <div className="buttons">
+                        <button type="button" onClick={() => dialogRef.current?.close()}>Cancel</button>
+                        <button onClick={addNewExperience}>Save</button>
+                    </div>
                 </form>
             </dialog>
 
-            <ul>
+            <div className="list">
                 {resume.practicalExp.map((exp) => (
-                    <li key={exp.companyName}>
-                        {exp.companyName}
+                    <div key={exp.companyName}>
+                        <span>{exp.companyName}</span>
                         <button onClick={removeExperience}>Remove</button>
-                    </li>
+                    </div>
                 ))}
-            </ul>
+            </div>
+
+            <button onClick={() => dialogRef.current?.showModal()}>Add Experience</button>
         </div>
     )
 }

@@ -1,8 +1,8 @@
 import { useState } from "react"
-import "./App.css"
 import Builder from "./components/Builder"
 import Resume from "./components/Resume"
 import initialResume from "./data"
+import "./App.css"
 
 function App() {
     const [resume, updateResume] = useState(initialResume)
