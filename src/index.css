@@ -1,1 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+}
 
+#root {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}

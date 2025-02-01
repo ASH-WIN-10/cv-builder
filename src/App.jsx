@@ -1,7 +1,14 @@
-import './App.css'
+import "./App.css"
+import Builder from "./components/Builder"
+import Resume from "./components/Resume"
 
 function App() {
-    return <h1>Hello World</h1>
+    return (
+        <>
+            <Builder />
+            <Resume />
+        </>
+    )
 }
 
 export default App
