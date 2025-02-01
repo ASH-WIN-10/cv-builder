@@ -15,6 +15,13 @@ export default function EducationalExpSection({ resume, updateResume }) {
         dialogRef.current?.close()
     }
 
+    function removeEducation() {
+        updateResume({
+            ...resume, education: resume.education.filter(
+                (edu) => edu.schoolName !== education.schoolName)
+        })
+    }
+
     const { schoolName, degree, startDate, endDate } = education
     return (
         <div id="educationalExp">
@@ -44,6 +51,15 @@ export default function EducationalExpSection({ resume, updateResume }) {
                     <button onClick={addNewEducation}>Save</button>
                 </form>
             </dialog>
+
+            <ul>
+                {resume.education.map((edu) => (
+                    <li key={edu.schoolName}>
+                        {edu.schoolName}
+                        <button onClick={removeEducation}>Remove</button>
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }
