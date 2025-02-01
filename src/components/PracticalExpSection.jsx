@@ -15,9 +15,17 @@ export default function PracticalExpSection({ resume, updateResume }) {
         dialogRef.current?.close()
     }
 
+    function removeExperience() {
+        updateResume({
+            ...resume, practicalExp: resume.practicalExp.filter(
+                (exp) => exp.companyName !== experience.companyName)
+        })
+    }
+
+    const { companyName, jobTitle, startDate, endDate, jobDesc } = experience
     return (
         <div id="practicalExperience">
-            <h3>Practical</h3>
+            <h3>Experience</h3>
             <button onClick={() => dialogRef.current?.showModal()}>Add Experience</button>
 
             <dialog ref={dialogRef}>
@@ -25,30 +33,39 @@ export default function PracticalExpSection({ resume, updateResume }) {
                 <form>
                     <div>
                         <label htmlFor="companyName">Company: </label>
-                        <input type="text" name="companyName" onChange={handleInputChange} />
+                        <input type="text" name="companyName" value={companyName} onChange={handleInputChange} />
                     </div>
 
                     <div>
-                        <label htmlFor="positionTitle">Position: </label>
-                        <input type="text" name="positionTitle" onChange={handleInputChange} />                    </div>
+                        <label htmlFor="jobTitle">Job Title: </label>
+                        <input type="text" name="jobTitle" value={jobTitle} onChange={handleInputChange} />                    </div>
 
                     <div>
                         <label htmlFor="startDate">Start Date: </label>
-                        <input type="date" name="startDate" onChange={handleInputChange} />
+                        <input type="date" name="startDate" value={startDate} onChange={handleInputChange} />
 
                         <label htmlFor="endDate">End Date: </label>
-                        <input type="date" name="endDate" onChange={handleInputChange} />
+                        <input type="date" name="endDate" value={endDate} onChange={handleInputChange} />
                     </div>
 
                     <div>
                         <label htmlFor="jobDescr">Main Responsibilities: </label>
-                        <textarea name="jobDescr" onChange={handleInputChange} />
+                        <textarea name="jobDescr" value={jobDesc} onChange={handleInputChange} />
                     </div>
 
                     <button type="button" onClick={() => dialogRef.current?.close()}>Cancel</button>
                     <button onClick={addNewExperience}>Save</button>
                 </form>
             </dialog>
+
+            <ul>
+                {resume.practicalExp.map((exp) => (
+                    <li key={exp.companyName}>
+                        {exp.companyName}
+                        <button onClick={removeExperience}>Remove</button>
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }

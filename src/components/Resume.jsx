@@ -20,6 +20,18 @@ export default function Resume(props) {
                     </div>
                 ))}
             </div>
+            <div>
+                <h3>Experiences</h3>
+                {resume.practicalExp.map((exp) => (
+                    <div key={exp.companyName}>
+                        <span>Company: {exp.companyName}</span><br />
+                        <span>Job Title: {exp.jobTitle}</span><br />
+                        <span>Start Date: {exp.startDate}</span><br />
+                        <span>End Date: {exp.endDate}</span><br />
+                        <span>Main Responsibilities: {exp.jobDesc}</span><br />
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
