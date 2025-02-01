@@ -2,12 +2,7 @@ import { useRef, useState } from "react"
 
 export default function EducationalExpSection({ resume, updateResume }) {
     const dialogRef = useRef(null)
-    const [education, updateEducation] = useState({
-        schoolName: "",
-        degree: "",
-        startDate: "",
-        endDate: ""
-    })
+    const [education, updateEducation] = useState(resume.education[0])
 
     function handleInputChange(e) {
         const { name, value } = e.target
@@ -20,9 +15,10 @@ export default function EducationalExpSection({ resume, updateResume }) {
         dialogRef.current?.close()
     }
 
+    const { schoolName, degree, startDate, endDate } = education
     return (
         <div id="educationalExp">
-            <h3>Educational</h3>
+            <h3>Education</h3>
             <button onClick={() => dialogRef.current?.showModal()}>Add Education</button>
 
             <dialog ref={dialogRef}>
@@ -30,18 +26,18 @@ export default function EducationalExpSection({ resume, updateResume }) {
                 <form>
                     <div>
                         <label htmlFor="schoolName">School: </label>
-                        <input type="text" name="schoolName" onChange={handleInputChange} />
+                        <input type="text" name="schoolName" value={schoolName} onChange={handleInputChange} />
                     </div>
                     <div>
                         <label htmlFor="degree">Degree: </label>
-                        <input type="text" name="degree" onChange={handleInputChange} />
+                        <input type="text" name="degree" value={degree} onChange={handleInputChange} />
                     </div>
                     <div>
                         <label htmlFor="startDate">Start Date: </label>
-                        <input type="date" name="startDate" onChange={handleInputChange} />
+                        <input type="date" name="startDate" value={startDate} onChange={handleInputChange} />
 
                         <label htmlFor="endDate">End Date: </label>
-                        <input type="date" name="endDate" onChange={handleInputChange} />
+                        <input type="date" name="endDate" value={endDate} onChange={handleInputChange} />
                     </div>
 
                     <button type="button" onClick={() => dialogRef.current?.close()}>Cancel</button>
