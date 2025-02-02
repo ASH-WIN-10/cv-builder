@@ -1,7 +1,7 @@
-const initialResume = {
+const initialMockResume = {
     name: "John Doe",
     email: "johndoe@gmail.com",
-    phoneNum: "1234567890",
+    phoneNum: "+91 123 456 7890",
     education: [
         {
             schoolName: "University of Nowhere",
@@ -21,4 +21,12 @@ const initialResume = {
     ],
 }
 
-export default initialResume
+const initialEmptyResume = {
+    name: "",
+    email: "",
+    phoneNum: "",
+    education: [],
+    practicalExp: [],
+}
+
+export { initialMockResume, initialEmptyResume }

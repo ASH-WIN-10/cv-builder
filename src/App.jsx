@@ -1,11 +1,11 @@
 import { useState } from "react"
 import Builder from "./components/Builder"
 import Resume from "./components/Resume"
-import initialResume from "./data"
+import { initialMockResume } from "./data"
 import "./App.css"
 
 function App() {
-    const [resume, updateResume] = useState(initialResume)
+    const [resume, updateResume] = useState(initialMockResume)
 
     return (
         <>
