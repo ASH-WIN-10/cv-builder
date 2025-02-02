@@ -1,36 +1,69 @@
-export default function Resume(props) {
-    const resume = props.resume;
+import "../styles/Resume.css"
+import emailIcon from "../assets/email.svg"
+import phoneIcon from "../assets/phone.svg"
+
+export default function Resume({ resume }) {
     return (
         <div id="resume">
-            <h2>Resume</h2>
-            <div>
-                <h3>General</h3>
-                <span>Name: {resume.name}</span><br />
-                <span>Email: {resume.email}</span><br />
-                <span>Phone Number: {resume.phoneNum}</span><br />
-            </div>
-            <div>
-                <h3>Education</h3>
-                {resume.education.map((edu) => (
-                    <div key={edu.schoolName}>
-                        <span>School: {edu.schoolName}</span><br />
-                        <span>Degree: {edu.degree}</span><br />
-                        <span>Start Date: {edu.startDate}</span><br />
-                        <span>End Date: {edu.endDate}</span><br />
+            <div className="general">
+                <div>
+                    <span>{resume.name}</span>
+                </div>
+                <div>
+                    <div>
+                        <img src={emailIcon} alt="email" />
+                        <span>{resume.email}</span>
                     </div>
-                ))}
-            </div>
-            <div>
-                <h3>Experiences</h3>
-                {resume.practicalExp.map((exp) => (
-                    <div key={exp.companyName}>
-                        <span>Company: {exp.companyName}</span><br />
-                        <span>Job Title: {exp.jobTitle}</span><br />
-                        <span>Start Date: {exp.startDate}</span><br />
-                        <span>End Date: {exp.endDate}</span><br />
-                        <span>Main Responsibilities: {exp.jobDesc}</span><br />
+                    <div>
+                        <img src={phoneIcon} alt="phone" />
+                        <span>{resume.phoneNum}</span>
                     </div>
-                ))}
+                </div>
+            </div>
+
+            <div className="experience">
+                <div className="heading">
+                    <span>Experience</span>
+                </div>
+
+                <div className="list">
+                    {resume.education.map((edu) => (
+                        <div key={edu.schoolName} className="listItem">
+                            <div>
+                                <span>
+                                    {edu.startDate} - {edu.endDate}
+                                </span>
+                            </div>
+                            <div>
+                                <strong>{edu.schoolName}</strong>
+                                <span>{edu.degree}</span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="experience">
+                <div className="heading">
+                    <span>Experience</span>
+                </div>
+
+                <div className="list">
+                    {resume.practicalExp.map((exp) => (
+                        <div key={exp.companyName} className="listItem">
+                            <div>
+                                <span>
+                                    {exp.startDate} - {exp.endDate}
+                                </span>
+                            </div>
+                            <div>
+                                <strong>{exp.companyName}</strong>
+                                <i>{exp.jobTitle}</i>
+                                <span>{exp.jobDesc}</span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )

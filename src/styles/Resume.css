@@ -1,0 +1,72 @@
+#resume {
+    width: 98%;
+    height: 800px;
+    margin-bottom: 32px;
+    background-color: white;
+    color: black;
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 6px 20px,
+        rgba(255, 255, 255, 0.22) 0px 14px 20px;
+}
+
+#resume .general {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 28px 0;
+    gap: 18px;
+
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+#resume .general > :first-child {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+#resume .general > :last-child {
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#resume .general > div div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#resume .experience {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 32px;
+}
+
+#resume .experience .heading {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: var(--tertiary-color);
+    padding: 4px;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+#resume .experience .list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 1.1rem;
+}
+
+#resume .experience .list .listItem {
+    display: flex;
+    gap: 24px;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+    }
+}

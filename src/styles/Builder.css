@@ -1,5 +1,5 @@
-#builder>div {
-    width: 80%
+#builder > div {
+    width: 80%;
 }
 
 form {
@@ -8,7 +8,7 @@ form {
     gap: 16px;
 }
 
-.list {
+#builder .list {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -16,7 +16,7 @@ form {
     border-top: 3px solid var(--primary-color);
 }
 
-.list div {
+#builder .list div {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -63,7 +63,7 @@ dialog form .buttons {
 dialog form .description {
     align-items: center;
 
-    >textarea {
+    > textarea {
         font-size: 0.9rem;
     }
 }
