@@ -6,16 +6,16 @@ const initialResume = {
         {
             schoolName: "University of Nowhere",
             degree: "B.S. in Computer Science",
-            startDate: "2020-01-01",
-            endDate: "2024-01-01",
+            startDate: "01/2020",
+            endDate: "01/2024",
         },
     ],
     practicalExp: [
         {
             companyName: "Tech Co.",
             jobTitle: "Software Engineer",
-            startDate: "2024-01-01",
-            endDate: "2026-01-01",
+            startDate: "02/2024",
+            endDate: "Present",
             jobDesc: "Worked on various projects",
         },
     ],

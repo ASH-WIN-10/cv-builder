@@ -39,12 +39,12 @@ export default function EducationalExpSection({ resume, updateResume }) {
                     <div className="dates">
                         <div>
                             <label htmlFor="startDate">Start Date: </label>
-                            <input type="date" name="startDate" value={startDate} onChange={handleInputChange} />
+                            <input type="text" name="startDate" value={startDate} onChange={handleInputChange} />
                         </div>
 
                         <div>
                             <label htmlFor="endDate">End Date: </label>
-                            <input type="date" name="endDate" value={endDate} onChange={handleInputChange} />
+                            <input type="text" name="endDate" value={endDate} onChange={handleInputChange} />
                         </div>
                     </div>
 

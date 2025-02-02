@@ -39,10 +39,10 @@ export default function PracticalExpSection({ resume, updateResume }) {
 
                     <div className="dates">
                         <label htmlFor="startDate">Start Date: </label>
-                        <input type="date" name="startDate" value={startDate} onChange={handleInputChange} />
+                        <input type="text" name="startDate" value={startDate} onChange={handleInputChange} />
 
                         <label htmlFor="endDate">End Date: </label>
-                        <input type="date" name="endDate" value={endDate} onChange={handleInputChange} />
+                        <input type="text" name="endDate" value={endDate} onChange={handleInputChange} />
                     </div>
 
                     <div className="description">
