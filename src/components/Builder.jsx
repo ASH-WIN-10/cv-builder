@@ -22,15 +22,24 @@ export default function Builder({ resume, updateResume }) {
             </div>
 
             <Accordion title="General Information">
-                <GeneralInfoSection resume={resume} updateResume={updateResume} />
+                <GeneralInfoSection
+                    resume={resume}
+                    updateResume={updateResume}
+                />
             </Accordion>
 
             <Accordion title="Education">
-                <EducationalExpSection resume={resume} updateResume={updateResume} />
+                <EducationalExpSection
+                    resume={resume}
+                    updateResume={updateResume}
+                />
             </Accordion>
 
             <Accordion title="Practical Experience">
-                <PracticalExpSection resume={resume} updateResume={updateResume} />
+                <PracticalExpSection
+                    resume={resume}
+                    updateResume={updateResume}
+                />
             </Accordion>
         </div>
     )
