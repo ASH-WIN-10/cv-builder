@@ -9,3 +9,13 @@
     gap: 32px;
     align-items: center;
 }
+
+#resume {
+    margin: 32px auto;
+    width: 90%;
+    height: 875px;
+    background-color: white;
+    color: black;
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 6px 20px,
+        rgba(255, 255, 255, 0.22) 0px 14px 20px;
+}

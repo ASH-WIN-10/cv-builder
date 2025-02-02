@@ -21,9 +21,8 @@
     align-items: center;
 }
 
-.accordion-header h3 {
-    font-size: 1rem;
-    color: #fff;
+.accordion-header :first-child {
+    font-size: 1.7rem;
 }
 
 .accordion-icon {
@@ -58,7 +57,7 @@
 
 .accordion-content.expanded {
     max-height: 500px;
-    padding: 0 16px 15px 15px;
+    padding: 4px 16px 15px 15px;
     opacity: 1;
     transform: translateY(0);
 }

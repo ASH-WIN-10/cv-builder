@@ -1,4 +1,6 @@
 import { useRef, useState } from "react"
+import removeIcon from "../assets/remove.svg"
+import addIcon from "../assets/add.svg"
 
 export default function PracticalExpSection({ resume, updateResume }) {
     const dialogRef = useRef(null)
@@ -51,7 +53,7 @@ export default function PracticalExpSection({ resume, updateResume }) {
                     </div>
 
                     <div className="buttons">
-                        <button type="button" onClick={() => dialogRef.current?.close()}>Cancel</button>
+                        <button className="red" type="button" onClick={() => dialogRef.current?.close()}>Cancel</button>
                         <button onClick={addNewExperience}>Save</button>
                     </div>
                 </form>
@@ -61,12 +63,17 @@ export default function PracticalExpSection({ resume, updateResume }) {
                 {resume.practicalExp.map((exp) => (
                     <div key={exp.companyName}>
                         <span>{exp.companyName}</span>
-                        <button onClick={removeExperience}>Remove</button>
+                        <button className="icon" onClick={removeExperience}>
+                            <img src={removeIcon} alt="remove" />
+                        </button>
                     </div>
                 ))}
             </div>
 
-            <button onClick={() => dialogRef.current?.showModal()}>Add Experience</button>
+            <button className="add" onClick={() => dialogRef.current?.showModal()}>
+                <img src={addIcon} alt="add" />
+                <span>Experience</span>
+            </button>
         </div>
     )
 }

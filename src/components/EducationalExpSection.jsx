@@ -1,4 +1,6 @@
 import { useRef, useState } from "react"
+import removeIcon from "../assets/remove.svg"
+import addIcon from "../assets/add.svg"
 
 export default function EducationalExpSection({ resume, updateResume }) {
     const dialogRef = useRef(null)
@@ -49,8 +51,10 @@ export default function EducationalExpSection({ resume, updateResume }) {
                     </div>
 
                     <div className="buttons">
-                        <button type="button" onClick={() => dialogRef.current?.close()}>Cancel</button>
-                        <button onClick={addNewEducation}>Save</button>
+                        <button type="button" className="red" onClick={() => dialogRef.current?.close()}>
+                            Cancel
+                        </button>
+                        <button onClick={addNewEducation}> Save </button>
                     </div>
                 </form>
             </dialog>
@@ -59,12 +63,17 @@ export default function EducationalExpSection({ resume, updateResume }) {
                 {resume.education.map((edu) => (
                     <div key={edu.schoolName}>
                         <span>{edu.schoolName}</span>
-                        <button onClick={removeEducation}>Remove</button>
+                        <button className="icon" onClick={removeEducation}>
+                            <img src={removeIcon} alt="remove" />
+                        </button>
                     </div>
                 ))}
             </div>
 
-            <button onClick={() => dialogRef.current?.showModal()}>Add Education</button>
+            <button className="add" onClick={() => dialogRef.current?.showModal()}>
+                <img src={addIcon} alt="add" />
+                <span>Education</span>
+            </button>
         </div>
     )
 }

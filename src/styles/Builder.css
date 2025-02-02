@@ -1,5 +1,17 @@
-#builder > div {
+#builder>div {
     width: 80%;
+}
+
+#builder #general {
+    input {
+        width: 100%;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 3px;
+    }
 }
 
 form {
@@ -21,15 +33,20 @@ form {
     justify-content: space-between;
     align-items: center;
 
-    padding: 8px 0;
+    padding: 6px;
     width: 100%;
     border-bottom: 3px solid var(--primary-color);
 
     font-size: 1.2rem;
+
+    >span {
+        margin-left: 6px;
+        font-weight: bold;
+    }
 }
 
 dialog {
-    width: 30%;
+    width: 45%;
     background-color: var(--secondary-color);
     border: none;
     outline: none;
@@ -62,8 +79,17 @@ dialog form .buttons {
 
 dialog form .description {
     align-items: center;
+}
 
-    > textarea {
-        font-size: 0.9rem;
-    }
+button.add {
+    background-color: transparent;
+    border: 4px solid var(--primary-color);
+    padding: 4px 16px;
+    border-radius: 50px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3px;
 }

@@ -9,15 +9,15 @@ export default function GeneralInfoSection({ resume, updateResume }) {
         <div id="general">
             <form>
                 <div>
-                    <label htmlFor="name">Name: </label>
+                    <label htmlFor="name">Name</label>
                     <input type="text" name="name" value={name} onChange={handleInputChange} />
                 </div>
                 <div>
-                    <label htmlFor="email">Email: </label>
+                    <label htmlFor="email">Email</label>
                     <input type="email" name="email" value={email} onChange={handleInputChange} />
                 </div>
                 <div>
-                    <label htmlFor="phoneNum">Phone Number: </label>
+                    <label htmlFor="phoneNum">Phone Number</label>
                     <input type="text" name="phoneNum" value={phoneNum} onChange={handleInputChange} />
                 </div>
             </form>
