@@ -86,7 +86,16 @@ export default function EducationalExpSection({ resume, updateResume }) {
         })
     }
 
-    const openDialog = () => dialogRef.current?.showModal()
+    function openDialog(e) {
+        if (e.currentTarget.tagName === "BUTTON")
+            updateEducation({
+                schoolName: "",
+                degree: "",
+                startDate: "",
+                endDate: "",
+            })
+        dialogRef.current?.showModal()
+    }
 
     return (
         <div id="education">

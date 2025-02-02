@@ -101,7 +101,17 @@ export default function PracticalExpSection({ resume, updateResume }) {
         })
     }
 
-    const openDialog = () => dialogRef.current?.showModal()
+    function openDialog(e) {
+        if (e.currentTarget.tagName === "BUTTON")
+            updateExperience({
+                companyName: "",
+                jobTitle: "",
+                startDate: "",
+                endDate: "",
+                jobDesc: "",
+            })
+        dialogRef.current?.showModal()
+    }
 
     return (
         <div id="practicalExperience">
