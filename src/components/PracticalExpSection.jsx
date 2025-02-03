@@ -18,6 +18,7 @@ function Dialog({
                     <input
                         type="text"
                         name="companyName"
+                        id="companyName"
                         value={companyName}
                         onChange={handleInputChange}
                     />
@@ -28,6 +29,7 @@ function Dialog({
                     <input
                         type="text"
                         name="jobTitle"
+                        id="jobTitle"
                         value={jobTitle}
                         onChange={handleInputChange}
                     />{" "}
@@ -38,6 +40,7 @@ function Dialog({
                     <input
                         type="text"
                         name="startDate"
+                        id="startDate"
                         value={startDate}
                         onChange={handleInputChange}
                     />
@@ -46,15 +49,17 @@ function Dialog({
                     <input
                         type="text"
                         name="endDate"
+                        id="endDate"
                         value={endDate}
                         onChange={handleInputChange}
                     />
                 </div>
 
                 <div className="description">
-                    <label htmlFor="jobDescr">Main Responsibilities: </label>
+                    <label htmlFor="jobDesc">Main Responsibilities: </label>
                     <textarea
-                        name="jobDescr"
+                        name="jobDesc"
+                        id="jobDesc"
                         value={jobDesc}
                         onChange={handleInputChange}
                     />

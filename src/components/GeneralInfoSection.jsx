@@ -13,6 +13,7 @@ export default function GeneralInfoSection({ resume, updateResume }) {
                     <input
                         type="text"
                         name="name"
+                        id="name"
                         value={name}
                         onChange={handleInputChange}
                     />
@@ -22,6 +23,7 @@ export default function GeneralInfoSection({ resume, updateResume }) {
                     <input
                         type="email"
                         name="email"
+                        id="email"
                         value={email}
                         onChange={handleInputChange}
                     />
@@ -31,6 +33,7 @@ export default function GeneralInfoSection({ resume, updateResume }) {
                     <input
                         type="text"
                         name="phoneNum"
+                        id="phoneNum"
                         value={phoneNum}
                         onChange={handleInputChange}
                     />

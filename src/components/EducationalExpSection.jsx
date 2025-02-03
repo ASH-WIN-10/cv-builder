@@ -13,6 +13,7 @@ function Dialog({ education, addNewEducation, handleInputChange, dialogRef }) {
                     <input
                         type="text"
                         name="schoolName"
+                        id="schoolName"
                         value={schoolName}
                         onChange={handleInputChange}
                     />
@@ -22,6 +23,7 @@ function Dialog({ education, addNewEducation, handleInputChange, dialogRef }) {
                     <input
                         type="text"
                         name="degree"
+                        id="degree"
                         value={degree}
                         onChange={handleInputChange}
                     />
@@ -32,6 +34,7 @@ function Dialog({ education, addNewEducation, handleInputChange, dialogRef }) {
                         <input
                             type="text"
                             name="startDate"
+                            id="startDate"
                             value={startDate}
                             onChange={handleInputChange}
                         />
@@ -42,6 +45,7 @@ function Dialog({ education, addNewEducation, handleInputChange, dialogRef }) {
                         <input
                             type="text"
                             name="endDate"
+                            id="endDate"
                             value={endDate}
                             onChange={handleInputChange}
                         />
