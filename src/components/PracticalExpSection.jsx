@@ -97,11 +97,12 @@ export default function PracticalExpSection({ resume, updateResume }) {
         dialogRef.current?.close()
     }
 
-    function removeExperience() {
+    function removeExperience(e) {
+        const companyName = e.currentTarget.previousSibling.textContent
         updateResume({
             ...resume,
             practicalExp: resume.practicalExp.filter(
-                (exp) => exp.companyName !== experience.companyName,
+                (exp) => exp.companyName !== companyName,
             ),
         })
     }

@@ -81,11 +81,12 @@ export default function EducationalExpSection({ resume, updateResume }) {
         dialogRef.current?.close()
     }
 
-    function removeEducation() {
+    function removeEducation(e) {
+        const schoolName = e.currentTarget.previousSibling.textContent
         updateResume({
             ...resume,
             education: resume.education.filter(
-                (edu) => edu.schoolName !== education.schoolName,
+                (edu) => edu.schoolName !== schoolName,
             ),
         })
     }
