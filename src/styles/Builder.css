@@ -34,7 +34,7 @@ form {
     border-top: 3px solid var(--primary-color);
 }
 
-#builder .list div {
+#builder .list>div {
     display: flex;
     justify-content: space-between;
     align-items: center;

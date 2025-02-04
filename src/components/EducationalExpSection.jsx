@@ -2,6 +2,7 @@ import { useRef, useState } from "react"
 import { emptyEducation } from "../data"
 import removeIcon from "../assets/remove.svg"
 import addIcon from "../assets/add.svg"
+import editIcon from "../assets/edit.svg"
 
 function Dialog({ education, updateEducation, addNewEducation, dialogRef }) {
     function handleInputChange(e) {
@@ -80,8 +81,17 @@ export default function EducationalExpSection({ resume, updateResume }) {
 
     function addNewEducation(e) {
         e.preventDefault()
-        const edu = { ...education, id: resume.education.length + 1 }
-        updateResume({ ...resume, education: [...resume.education, edu] })
+
+        if (education.id !== 0) {
+            const updatedEducation = resume.education.map((edu) =>
+                edu.id === education.id ? education : edu,
+            )
+            updateResume({ ...resume, education: updatedEducation })
+        } else {
+            const edu = { ...education, id: resume.education.length + 1 }
+            updateResume({ ...resume, education: [...resume.education, edu] })
+        }
+
         dialogRef.current?.close()
     }
 
@@ -94,8 +104,13 @@ export default function EducationalExpSection({ resume, updateResume }) {
     }
 
     function openDialog(e) {
-        if (e.currentTarget.tagName === "BUTTON")
-            updateEducation(emptyEducation)
+        if (e.currentTarget.id === "addBtn") updateEducation(emptyEducation)
+        else if (e.currentTarget.id === "editBtn") {
+            const id = parseInt(e.currentTarget.parentElement.dataset.id)
+            const edu = resume.education.find((edu) => edu.id === id)
+            updateEducation(edu)
+        }
+
         dialogRef.current?.showModal()
     }
 
@@ -110,17 +125,27 @@ export default function EducationalExpSection({ resume, updateResume }) {
 
             <div className="list">
                 {resume.education.map((edu) => (
-                    <div key={edu.schoolName} data-id={edu.id}>
                     <div key={edu.id}>
                         <span>{edu.schoolName}</span>
-                        <button className="icon" onClick={removeEducation}>
-                            <img src={removeIcon} alt="remove" />
-                        </button>
+                        <div data-id={edu.id}>
+                            <button
+                                id="editBtn"
+                                className="icon"
+                                onClick={openDialog}>
+                                <img src={editIcon} alt="edit" />
+                            </button>
+                            <button
+                                id="removeBtn"
+                                className="icon"
+                                onClick={removeEducation}>
+                                <img src={removeIcon} alt="remove" />
+                            </button>
+                        </div>
                     </div>
                 ))}
             </div>
 
-            <button className="add" onClick={openDialog}>
+            <button id="addBtn" className="add" onClick={openDialog}>
                 <img src={addIcon} alt="add" />
                 <span>Education</span>
             </button>

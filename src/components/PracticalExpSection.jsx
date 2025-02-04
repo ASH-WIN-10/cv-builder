@@ -2,6 +2,7 @@ import { useRef, useState } from "react"
 import { emptyPracticalExp } from "../data"
 import addIcon from "../assets/add.svg"
 import removeIcon from "../assets/remove.svg"
+import editIcon from "../assets/edit.svg"
 
 function Dialog({ experience, updateExperience, addNewExperience, dialogRef }) {
     function handleInputChange(e) {
@@ -89,11 +90,20 @@ export default function PracticalExpSection({ resume, updateResume }) {
 
     function addNewExperience(e) {
         e.preventDefault()
-        const exp = { ...experience, id: resume.practicalExp.length + 1 }
-        updateResume({
-            ...resume,
-            practicalExp: [...resume.practicalExp, exp],
-        })
+
+        if (experience.id !== 0) {
+            const updatedExp = resume.practicalExp.map((exp) =>
+                exp.id === experience.id ? experience : exp,
+            )
+            updateResume({ ...resume, practicalExp: updatedExp })
+        } else {
+            const exp = { ...experience, id: resume.practicalExp.length + 1 }
+            updateResume({
+                ...resume,
+                practicalExp: [...resume.practicalExp, exp],
+            })
+        }
+
         dialogRef.current?.close()
     }
 
@@ -106,8 +116,13 @@ export default function PracticalExpSection({ resume, updateResume }) {
     }
 
     function openDialog(e) {
-        if (e.currentTarget.tagName === "BUTTON")
-            updateExperience(emptyPracticalExp)
+        if (e.currentTarget.id === "addBtn") updateExperience(emptyPracticalExp)
+        else if (e.currentTarget.id === "editBtn") {
+            const id = parseInt(e.currentTarget.parentElement.dataset.id)
+            const exp = resume.practicalExp.find((exp) => exp.id === id)
+            updateExperience(exp)
+        }
+
         dialogRef.current?.showModal()
     }
 
@@ -122,17 +137,27 @@ export default function PracticalExpSection({ resume, updateResume }) {
 
             <div className="list">
                 {resume.practicalExp.map((exp) => (
-                    <div key={exp.companyName} data-id={exp.id}>
                     <div key={exp.id}>
                         <span>{exp.companyName}</span>
-                        <button className="icon" onClick={removeExperience}>
-                            <img src={removeIcon} alt="remove" />
-                        </button>
+                        <div data-id={exp.id}>
+                            <button
+                                id="editBtn"
+                                className="icon"
+                                onClick={openDialog}>
+                                <img src={editIcon} alt="edit" />
+                            </button>
+                            <button
+                                id="removeBtn"
+                                className="icon"
+                                onClick={removeExperience}>
+                                <img src={removeIcon} alt="remove" />
+                            </button>
+                        </div>
                     </div>
                 ))}
             </div>
 
-            <button className="add" onClick={openDialog}>
+            <button id="addBtn" className="add" onClick={openDialog}>
                 <img src={addIcon} alt="add" />
                 <span>Experience</span>
             </button>
