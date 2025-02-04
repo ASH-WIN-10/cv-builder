@@ -1,10 +1,17 @@
-## Todos
+## [CV Builder](https://cvresume-builder.netlify.app/)
+This is a simple CV builder that allows you to create a CV by filling in a form using React.
+> The CV is not generated in a PDF format, but it is displayed on the screen.
 
-- [x] Adding info in general section updates the Resume page
-- [x] Same with Education and Practical Experience Sections
-- [x] Ability to add multiple education and practical experiences
-- [x] Ability to remove multiple education and practical experiences
-- [x] Ability to edit the education and practical experiences
-- [x] Make the General, Education and Practical Experience sections collapsible
-- [x] Add a reset button
-- [x] Styling
+### To run the project locally
+1. Clone the repository
+```bash
+git clone https://github.com/ASH-WIN-10/cv-builder
+```
+2. Install the dependencies
+```bash
+bun install
+```
+3. Run the development server
+```bash
+bun run dev
+```
