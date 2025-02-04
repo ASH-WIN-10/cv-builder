@@ -4,6 +4,7 @@ const initialMockResume = {
     phoneNum: "+91 123 456 7890",
     education: [
         {
+            id: 1,
             schoolName: "University of Nowhere",
             degree: "B.S. in Computer Science",
             startDate: "01/2020",
@@ -12,6 +13,7 @@ const initialMockResume = {
     ],
     practicalExp: [
         {
+            id: 1,
             companyName: "Tech Co.",
             jobTitle: "Software Engineer",
             startDate: "02/2024",
@@ -29,4 +31,26 @@ const initialEmptyResume = {
     practicalExp: [],
 }
 
-export { initialMockResume, initialEmptyResume }
+const emptyEducation = {
+    id: 0,
+    schoolName: "",
+    degree: "",
+    startDate: "",
+    endDate: "",
+}
+
+const emptyPracticalExp = {
+    id: 0,
+    companyName: "",
+    jobTitle: "",
+    startDate: "",
+    endDate: "",
+    jobDesc: "",
+}
+
+export {
+    initialMockResume,
+    initialEmptyResume,
+    emptyEducation,
+    emptyPracticalExp,
+}

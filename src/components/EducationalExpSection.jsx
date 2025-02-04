@@ -1,14 +1,22 @@
 import { useRef, useState } from "react"
+import { emptyEducation } from "../data"
 import removeIcon from "../assets/remove.svg"
 import addIcon from "../assets/add.svg"
 
-function Dialog({ education, addNewEducation, handleInputChange, dialogRef }) {
-    const { schoolName, degree, startDate, endDate } = education
+function Dialog({ education, updateEducation, addNewEducation, dialogRef }) {
+    function handleInputChange(e) {
+        const { name, value } = e.target
+        updateEducation({ ...education, [name]: value })
+    }
+
+    const { id, schoolName, degree, startDate, endDate } = education
     return (
         <dialog ref={dialogRef}>
             <h2>Education</h2>
             <form>
                 <div>
+                    <input type="hidden" name="id" value={id} />
+
                     <label htmlFor="schoolName">School: </label>
                     <input
                         type="text"
@@ -70,35 +78,24 @@ export default function EducationalExpSection({ resume, updateResume }) {
     const dialogRef = useRef(null)
     const [education, updateEducation] = useState(resume.education[0])
 
-    function handleInputChange(e) {
-        const { name, value } = e.target
-        updateEducation({ ...education, [name]: value })
-    }
-
     function addNewEducation(e) {
         e.preventDefault()
-        updateResume({ ...resume, education: [...resume.education, education] })
+        const edu = { ...education, id: resume.education.length + 1 }
+        updateResume({ ...resume, education: [...resume.education, edu] })
         dialogRef.current?.close()
     }
 
     function removeEducation(e) {
-        const schoolName = e.currentTarget.previousSibling.textContent
+        const id = parseInt(e.currentTarget.parentElement.dataset.id)
         updateResume({
             ...resume,
-            education: resume.education.filter(
-                (edu) => edu.schoolName !== schoolName,
-            ),
+            education: resume.education.filter((edu) => edu.id !== id),
         })
     }
 
     function openDialog(e) {
         if (e.currentTarget.tagName === "BUTTON")
-            updateEducation({
-                schoolName: "",
-                degree: "",
-                startDate: "",
-                endDate: "",
-            })
+            updateEducation(emptyEducation)
         dialogRef.current?.showModal()
     }
 
@@ -106,14 +103,15 @@ export default function EducationalExpSection({ resume, updateResume }) {
         <div id="education">
             <Dialog
                 education={education}
+                updateEducation={updateEducation}
                 addNewEducation={addNewEducation}
-                handleInputChange={handleInputChange}
                 dialogRef={dialogRef}
             />
 
             <div className="list">
                 {resume.education.map((edu) => (
-                    <div key={edu.schoolName}>
+                    <div key={edu.schoolName} data-id={edu.id}>
+                    <div key={edu.id}>
                         <span>{edu.schoolName}</span>
                         <button className="icon" onClick={removeEducation}>
                             <img src={removeIcon} alt="remove" />
