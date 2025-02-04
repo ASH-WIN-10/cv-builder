@@ -23,7 +23,7 @@ export default function Resume({ resume }) {
 
             <div className="experience">
                 <div className="heading">
-                    <span>Experience</span>
+                    <span>Education</span>
                 </div>
 
                 <div className="list">
